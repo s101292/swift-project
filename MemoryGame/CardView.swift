@@ -20,6 +20,9 @@ struct CardView: View {
                             .aspectRatio(1, contentMode: .fit)
                             .rotationEffect(.degrees(card.isMatched ? 360 : 0))
                             .animation(Animation.spin(duration: 2))
+                            .if(card.isMatched) { content in
+                                content.animation(Animation.easeInOut(duration: 0.5).repeatCount(3, autoreverses: true))
+                            }
                     }
                     .opacity(1)
                     //.opacity(card.isFaceUp ? 1 : 0)
