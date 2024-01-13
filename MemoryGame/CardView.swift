@@ -23,13 +23,11 @@ struct CardView: View {
                             .if(card.isMatched) { content in
                                 content
                                     .scaleEffect(1)
-                                    .opacity(1)
                                     .animation(Animation.spin(duration: 2))
                             }
                             .if(!card.isMatched) { content in
                                 content
                                     .scaleEffect(0.5)
-                                    .opacity(0)
                                     .animation(Animation.easeInOut(duration: 0.5).repeatCount(3, autoreverses: true))
                             }
                     }
