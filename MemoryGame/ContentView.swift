@@ -7,7 +7,7 @@ struct ContentView: View {
     
     var body: some View {
         VStack{
-            Text("Memory game").font(.title2)
+            Text("Minefield").font(.title2)
             ScrollView{
                 cards.animation(.default, value: viewModel.cards)
             }
@@ -23,7 +23,7 @@ struct ContentView: View {
     }
     
     var cards : some View {
-        LazyVGrid(columns: [GridItem(.adaptive(minimum: 85),spacing: 0)], spacing: 0){
+        LazyVGrid(columns: [GridItem(.adaptive(minimum: 45),spacing: 0)], spacing: 0){
             ForEach(viewModel.cards){card in
                 ZStack{
                     CardView(card)
@@ -37,7 +37,6 @@ struct ContentView: View {
                         }
                         .transformIntoCard(isFaceUp: card.isFaceUp)
                     
-                    //                    .animation(.default,value: card.isFaceUp)
                     if card.id == lastScoreChange.cardId && lastScoreChange.points != 0 {
                         FlyingNumber(number: lastScoreChange.points)
                             .onAppear{
