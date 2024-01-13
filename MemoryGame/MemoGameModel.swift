@@ -27,7 +27,7 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
         print(looseCard.content)
         print("count")
         print(cards.count)
-        cards.shuffle()
+        //cards.shuffle()
     }
     
     mutating func changeCardSet(numberOfPairsOfCards: Int, cardContentFactory : (Int)->CardContent) {
