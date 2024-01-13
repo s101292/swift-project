@@ -19,7 +19,7 @@ struct CardView: View {
                             .minimumScaleFactor(0.01)
                             .aspectRatio(1, contentMode: .fit)
                             .rotationEffect(.degrees(card.isMatched ? 360 : 0))
-                            .animation(Animation.spin(duration: 2))
+                            .animation(card.isMatched ? Animation.spin(duration: 2) ! Animation.easeInOut(duration: 0.5).repeatCount(3, autoreverses: true))
                             .if(card.isMatched) { content in
                                 content.animation(Animation.easeInOut(duration: 0.5).repeatCount(3, autoreverses: true))
                             }
