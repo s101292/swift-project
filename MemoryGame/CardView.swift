@@ -14,7 +14,6 @@ struct CardView: View {
                 Group{
                         base.fill(.white)
                         base.strokeBorder(lineWidth: 3)
-                        CirclePartShape()
                         Text(card.content)
                             .font(.system(size: 200))
                             .minimumScaleFactor(0.01)
