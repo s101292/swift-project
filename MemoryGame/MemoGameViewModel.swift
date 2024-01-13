@@ -15,7 +15,7 @@ class MemoGameViewModel : ObservableObject{
     static var theme = Color.blue
     
     private static func createMemoGameModel() -> MemoGameModel<String> {
-        return MemoGameModel<String>(numberOfPairsOfCards: 5) { index in
+        return MemoGameModel<String>(numberOfPairsOfCards: 7) { index in
                 if emojis[theme]!.indices.contains(index) {
                     return emojis[theme]![index]
                 } else {
