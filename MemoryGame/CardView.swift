@@ -21,12 +21,10 @@ struct CardView: View {
                             .rotationEffect(.degrees( card.isMatched ? 360 : 0))
                             .animation(Animation.spin(duration: 2))
                     }
-                    .opacity(1)
-                    //.opacity(card.isFaceUp ? 1 : 0)
+                    .opacity(card.isFaceUp ? 1 : 0)
             )
             .aspectRatio(2/3, contentMode: .fill)
-            .opacity(1)
-            //.opacity(card.isFaceUp || !card.isMatched ? 1 : 0)
+            .opacity(card.isFaceUp || !card.isMatched ? 1 : 0)
         
     }
 }
