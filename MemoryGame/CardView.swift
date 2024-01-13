@@ -14,7 +14,7 @@ struct CardView: View {
                 Group{
                         base.fill(.white)
                         base.strokeBorder(lineWidth: 3)
-                        Text(card.isFaceUp ? card.content : "?")
+                        Text(card.content)
                             .font(.system(size: 250))
                             .minimumScaleFactor(0.01)
                             .aspectRatio(1, contentMode: .fit)
