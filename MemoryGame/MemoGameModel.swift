@@ -54,7 +54,7 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
                 score += 1
             }
 
-            if cards[chosenIndex].content == needToLoose.content {
+            if cards[chosenIndex].content == looseCard.content {
                 print("match")
                 score += 1
             }
