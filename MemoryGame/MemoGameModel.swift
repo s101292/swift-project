@@ -25,6 +25,8 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
         print(needToFind.content)
         print("need to loose")
         print(looseCard.content)
+        print("count")
+        print(cards.count)
         cards.shuffle()
     }
     
