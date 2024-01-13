@@ -7,11 +7,14 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
     
     init(numberOfPairsOfCards: Int, cardContentFactory : (Int)->CardContent) {
         cards = []
-        for pairIndex in 0..<max(2,numberOfPairsOfCards) {
+        for pairIndex in 0..<numberOfPairsOfCards {
             let content = cardContentFactory(pairIndex)
             let uuid = UUID()
             cards.append(Card(content: content, id: "\(uuid)a"))
             cards.append(Card(content: content, id: "\(uuid)b"))
+            cards.append(Card(content: content, id: "\(uuid)c"))
+            cards.append(Card(content: content, id: "\(uuid)d"))
+            cards.append(Card(content: content, id: "\(uuid)e"))
         }
         cards.shuffle()
     }
@@ -47,6 +50,25 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
             }
             cards[chosenIndex].isFaceUp = true
         }
+        // if let chosenIndex = index(of: card), !cards[chosenIndex].isFaceUp, !cards[chosenIndex].isMatched {
+        //     if let potentialMatchIndex = indexOfTheOneAndOnlyFaceUpCard {
+        //         if cards[chosenIndex].content == cards[potentialMatchIndex].content {
+        //             cards[chosenIndex].isMatched = true
+        //             cards[potentialMatchIndex].isMatched = true
+        //             score += 4
+        //         } else {
+        //             if cards[chosenIndex].hasBeenSeen {
+        //                 score -= 1
+        //             }
+        //             if cards[potentialMatchIndex].hasBeenSeen {
+        //                 score -= 1
+        //             }
+        //         }
+        //     } else {
+        //         indexOfTheOneAndOnlyFaceUpCard = chosenIndex
+        //     }
+        //     cards[chosenIndex].isFaceUp = true
+        // }
     }
     
     private var indexOfTheOneAndOnlyFaceUpCard: Int? {
