@@ -7,7 +7,7 @@ struct ContentView: View {
     
     var body: some View {
         VStack{
-            Text("Minefield").font(.title2)
+            Text("Minefield 💣").font(.title2)
             ScrollView{
                 cards.animation(.default, value: viewModel.cards)
             }

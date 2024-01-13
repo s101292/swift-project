@@ -14,11 +14,11 @@ struct CardView: View {
                 Group{
                         base.fill(.white)
                         base.strokeBorder(lineWidth: 3)
-                        Text(card.content)
+                        Text(card.isFaceUp ? card.content : "?")
                             .font(.system(size: 250))
                             .minimumScaleFactor(0.01)
-                            .aspectRatio(1 ,contentMode: .fit)
-                            .rotationEffect(.degrees( card.isMatched ? 360 : 0))
+                            .aspectRatio(1, contentMode: .fit)
+                            .rotationEffect(.degrees(card.isMatched ? 360 : 0))
                             .animation(Animation.spin(duration: 2))
                     }
                     .opacity(card.isFaceUp ? 1 : 0)
