@@ -26,9 +26,7 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
         print(needToFind.content)
         print("need to loose")
         print(looseCard.content)
-        print("count")
-        print(cards.count)
-        //cards.shuffle()
+        cards.shuffle()
     }
     
     mutating func changeCardSet(numberOfPairsOfCards: Int, cardContentFactory : (Int)->CardContent) {
@@ -44,18 +42,13 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
     
     mutating func choose(_ card: Card) {
         if let chosenIndex = index(of: card), !cards[chosenIndex].isFaceUp, !cards[chosenIndex].isMatched {
-            //cards[chosenIndex].isMatched = true
-
-            print("choosen:")
-            print(cards[chosenIndex].content)
+            cards[chosenIndex].isMatched = true
 
             if cards[chosenIndex].content == needToFind.content {
                 print("match")
                 score += 1
             }
 
-            print("loose content")
-            print(looseCard.content)
             if cards[chosenIndex].content == looseCard.content {
                 print("loose")
                 score = 0
