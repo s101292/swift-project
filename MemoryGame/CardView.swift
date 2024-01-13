@@ -12,7 +12,7 @@ struct CardView: View {
         base
             .overlay(
                 Group{
-                        base.fill(.white)
+                        base.fill(.black)
                         base.strokeBorder(lineWidth: 3)
                         Text(card.content)
                             .font(.system(size: 200))
