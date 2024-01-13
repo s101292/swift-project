@@ -20,7 +20,8 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
         }
         let randomInt = Int.random(in: 0...5)
         needToFind = cards[randomInt]
-        looseCard = cards[0]
+        print(numberOfPairsOfCards * 5 - 1)
+        looseCard = cards[numberOfPairsOfCards * 5 - 1]
         print("need to find")
         print(needToFind.content)
         print("need to loose")
