@@ -35,10 +35,12 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
     }
     
     mutating func choose(_ card: Card) {
+        print(card.content)
         if let chosenIndex = index(of: card), !cards[chosenIndex].isFaceUp, !cards[chosenIndex].isMatched {
             cards[chosenIndex].isMatched = true
 
             print(cards[chosenIndex].content)
+            print(needToFind.content)
 
             if cards[chosenIndex].content == needToFind.content {
                 print('match')
