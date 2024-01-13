@@ -12,11 +12,10 @@ struct CardView: View {
         base
             .overlay(
                 Group{
-                        base.fill(.black)
-                        .opacity(0.3)
+                        base.fill(.white)
                         base.strokeBorder(lineWidth: 3)
                         Text(card.content)
-                            .font(.system(size: 200))
+                            .font(.system(size: 250))
                             .minimumScaleFactor(0.01)
                             .aspectRatio(1 ,contentMode: .fit)
                             .rotationEffect(.degrees( card.isMatched ? 360 : 0))
