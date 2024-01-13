@@ -5,6 +5,7 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
     
     private (set) var cards : Array<Card>
     private (set) var needToFind : Card
+    private (set) var looseCard : Card
     
     init(numberOfPairsOfCards: Int, cardContentFactory : (Int)->CardContent) {
         cards = []
@@ -19,7 +20,11 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
         }
         let randomInt = Int.random(in: 0...5)
         needToFind = cards[randomInt]
+        looseCard = cards[6]
+        print("need to find")
         print(needToFind.content)
+        print("need to loose")
+        print(looseCard.content)
         cards.shuffle()
     }
     
