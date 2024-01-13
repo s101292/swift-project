@@ -20,13 +20,23 @@ struct CardView: View {
                             .aspectRatio(1, contentMode: .fit)
                             .rotationEffect(.degrees(card.isMatched ? 360 : 0))
                             .animation(Animation.spin(duration: 2))
+                            .if(card.isMatched) { content in
+                                content
+                                    .scaleEffect(1)
+                                    .opacity(1)
+                                    .animation(Animation.spin(duration: 2))
+                            }
+                            .if(!card.isMatched) { content in
+                                content
+                                    .scaleEffect(0.5)
+                                    .opacity(0)
+                                    .animation(Animation.easeInOut(duration: 0.5).repeatCount(3, autoreverses: true))
+                            }
                     }
-                    .opacity(1)
-                    //.opacity(card.isFaceUp ? 1 : 0)
+                    .opacity(card.isFaceUp ? 1 : 0)
             )
             .aspectRatio(2/3, contentMode: .fill)
-            .opacity(1)
-            //.opacity(card.isFaceUp || !card.isMatched ? 1 : 0)
+            .opacity(card.isFaceUp || !card.isMatched ? 1 : 0)
         
     }
 }
@@ -34,5 +44,16 @@ struct CardView: View {
 extension Animation {
     static func spin(duration: Double) -> Animation{
         return Animation.linear(duration: duration).repeatForever(autoreverses: false)
+    }
+}
+
+extension View {
+    @ViewBuilder
+    func `if`<Content: View>(_ condition: Bool, content: (Self) -> Content) -> some View {
+        if condition {
+            content(self)
+        } else {
+            self
+        }
     }
 }
