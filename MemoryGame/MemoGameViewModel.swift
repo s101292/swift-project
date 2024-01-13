@@ -2,7 +2,7 @@
 import SwiftUI
 
 class MemoGameViewModel : ObservableObject{
-    private static let emojis = [Color.blue : [
+    private static let emojis = [Color.black : [
                                     "🦁", "🐋", "🐨", "🦌", "🦉", "🐬","💣", 
                                     "🦁", "🐋", "🐨", "🦌", "🦉", "🐬","💣",
                                     "🦁", "🐋", "🐨", "🦌", "🦉", "🐬","💣",
@@ -11,8 +11,8 @@ class MemoGameViewModel : ObservableObject{
                                 ],
                                  Color.red : ["💣", "💀"],
                                  Color.green : ["🍏", "🍐", "🥦", "🥒", "🥑", "🌽", "🍏", "🍐", "🥦", "🥒", "🥑", "🌽"]]
-    @Published var themeColor = Color.blue
-    static var theme = Color.blue
+    @Published var themeColor = Color.black
+    static var theme = Color.black
     
     private static func createMemoGameModel() -> MemoGameModel<String> {
         return MemoGameModel<String>(numberOfPairsOfCards: 7) { index in
