@@ -22,13 +22,13 @@ struct CardView: View {
                             .animation(Animation.spin(duration: 2))
                             .if(card.isMatched) { content in
                                 content
-                                    .scaleEffect(1)
                                     .animation(Animation.spin(duration: 2))
                             }
                             .if(!card.isMatched) { content in
                                 content
-                                    .scaleEffect(0.5)
-                                    .animation(Animation.easeInOut(duration: 0.5).repeatCount(3, autoreverses: true))
+                                    withAnimation(Animation.easeInOut(duration: 0.5).repeatForever(autoreverses: true)) {
+                                        // No need for explicit changes here, the content already has the desired properties
+                                    }
                             }
                     }
                     .opacity(card.isFaceUp ? 1 : 0)
