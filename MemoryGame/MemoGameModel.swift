@@ -18,7 +18,8 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
             cards.append(Card(content: content, id: "\(uuid)d"))
             cards.append(Card(content: content, id: "\(uuid)e"))
         }
-        let randomInt = Int.random(in: 0...5)
+        let randomTo = (numberOfPairsOfCards - 1) * 5 - 1
+        let randomInt = Int.random(in: 0...randomTo)
         needToFind = cards[randomInt]
         print(numberOfPairsOfCards * 5 - 1)
         looseCard = cards[numberOfPairsOfCards * 5 - 1]
