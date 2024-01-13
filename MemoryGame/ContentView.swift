@@ -23,7 +23,7 @@ struct ContentView: View {
     }
     
     var cards : some View {
-        LazyVGrid(columns: [GridItem(.adaptive(minimum: 45),spacing: 0)], spacing: 0){
+        LazyVGrid(columns: [GridItem(.adaptive(minimum: 60),spacing: 0)], spacing: 0){
             ForEach(viewModel.cards){card in
                 ZStack{
                     CardView(card)
