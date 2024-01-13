@@ -4,6 +4,7 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
     var score = 0
     
     private (set) var cards : Array<Card>
+    private (set) var needToFind : Card
     
     init(numberOfPairsOfCards: Int, cardContentFactory : (Int)->CardContent) {
         cards = []
@@ -16,6 +17,8 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
             cards.append(Card(content: content, id: "\(uuid)d"))
             cards.append(Card(content: content, id: "\(uuid)e"))
         }
+        needToFind = Card[pairIndex]
+        print(needToFind)
         cards.shuffle()
     }
     
