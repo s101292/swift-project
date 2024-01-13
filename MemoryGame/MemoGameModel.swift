@@ -17,7 +17,7 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
             cards.append(Card(content: content, id: "\(uuid)d"))
             cards.append(Card(content: content, id: "\(uuid)e"))
         }
-        needToFind = Card[0]
+        needToFind = cards[0]
         print(needToFind)
         print(needToFind.content)
         cards.shuffle()
