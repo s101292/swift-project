@@ -9,7 +9,7 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
     private (set) var needToFind : Card
     private (set) var looseCard : Card
     
-    init(numberOfPairsOfCards: Int, cardContentFactory : (Int)->CardContent) {
+    init(numberOfPairsOfCards: Int, cardContentFactory : @escaping (Int)->CardContent) {
         cards = []
         for pairIndex in 0..<numberOfPairsOfCards {
             let content = cardContentFactory(pairIndex)
