@@ -65,7 +65,7 @@ struct ContentView: View {
                         }
                 }
             }
-        }
+        }.padding()
     }
     
     var cards : some View {
