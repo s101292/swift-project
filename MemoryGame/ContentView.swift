@@ -11,13 +11,18 @@ struct ContentView: View {
             ScrollView {
                 cards.animation(.default, value: viewModel.cards)
             }
-            // HStack {
-            //     Text("player1: \(viewModel.score1)")
-            //     Text("player2: \(viewModel.score2)")
-            // }.padding(.bottom, 15)
-            Text("Let's find: " + viewModel.needToFind.content)
-                .font(.title2)
-                .padding(.bottom, 20)
+            switch viewModel.status {
+                case "player1":
+                    Text("Let's find: " + viewModel.needToFind.content)
+                        .font(.title2)
+                        .padding(.bottom, 20)
+                case "player2":
+                    Text("Let's find: " + viewModel.needToFind.content)
+                        .font(.title2)
+                        .padding(.bottom, 20)
+                default:
+                    Text("")
+            }
             HStack(spacing: 20) {
                 ScoreBox(score: viewModel.score1, playerName: "Player 1", color: Color.blue)
                 switch viewModel.status {
@@ -33,8 +38,6 @@ struct ContentView: View {
                     default:
                         Text("")
                 }
-                Text("Player 1, your turn! Good luck!")
-                    .multilineTextAlignment(.center)
                 ScoreBox(score: viewModel.score2, playerName: "Player 2", color: Color.green)
             }
             Button(action: {
