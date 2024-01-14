@@ -117,17 +117,15 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
             } else {
                 status = "draw"
             }
+        } else {
+            resetAll()
+            showAll()
+            status = "show"
 
-            return nil
+            let randomTo = (7 - 1) * 5 - 1
+            let randomInt = Int.random(in: 0...randomTo)
+            needToFind = cards[randomInt]
         }
-
-        resetAll()
-        showAll()
-        status = "show"
-
-        let randomTo = (7 - 1) * 5 - 1
-        let randomInt = Int.random(in: 0...randomTo)
-        needToFind = cards[randomInt]
     }
     
     struct Card : Equatable, Identifiable{
