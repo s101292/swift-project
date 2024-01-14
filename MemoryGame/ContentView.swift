@@ -6,6 +6,31 @@ struct ContentView: View {
     @State private var lastScoreChange: (points: Int, cardId: String) = (0, "0")
     
     var body: some View {
+        if (viewModel.status == "player1_loose" || viewModel.status == "player2_loose") {
+            return VStack {
+                switch viewModel.status {
+                    case "player1_loose":
+                        Text("Player1 lost")
+                            .font(.title1)
+                    case "player2_loose":
+                        Text("Player2 lost")
+                            .font(.title1)        
+                }
+                Button(action: {
+                        viewModel.hideAll()
+                    }) {
+                        Text("START GAME")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .padding()
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple]), startPoint: .leading, endPoint: .trailing))
+                            .cornerRadius(10)
+                            .padding(.horizontal, 20)
+                    }
+            }
+        }
+
         return VStack {
             Text("Minefield 💣").font(.title2)
             ScrollView {
@@ -23,12 +48,6 @@ struct ContentView: View {
                 case "round_end":
                     Text("Let's find: " + viewModel.needToFind.content)
                         .font(.title2)
-                        .padding(.bottom, 20)
-                case "player1_loose":
-                    Text("Player1 was loosed")
-                        .padding(.bottom, 20)
-                case "player2_loose":
-                    Text("Player2 was loosed")  
                         .padding(.bottom, 20)
                 default:
                     Text("")  
