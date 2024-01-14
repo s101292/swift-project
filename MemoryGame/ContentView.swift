@@ -10,7 +10,7 @@ struct ContentView: View {
             if viewModel.status == "player1_loose" {
                 Text("Player1 lost").font(.title2)
                 Button(action: {
-                        viewModel.nextRound()
+                        viewModel.restartGame()
                     }) {
                         Text("RESTART")
                             .font(.headline)
