@@ -90,6 +90,7 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
         cards.indices.forEach { index in
             cards[index].isFaceUp = false
         }
+        status = "player1"
     }
 
     mutating func resetAll() {
