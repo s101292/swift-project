@@ -27,6 +27,11 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
 
         showAll()
         cards.shuffle()
+
+        let delayInSeconds = 10.0
+        DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds) {
+            hideAll()
+        }
     }
     
     mutating func changeCardSet(numberOfPairsOfCards: Int, cardContentFactory : (Int)->CardContent) {
@@ -83,6 +88,12 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
     mutating func showAll() {
         cards.indices.forEach { index in
             cards[index].isFaceUp = true
+        }
+    }
+
+    mutating func hideAll() {
+        cards.indices.forEach { index in
+            cards[index].isFaceUp = false
         }
     }
 

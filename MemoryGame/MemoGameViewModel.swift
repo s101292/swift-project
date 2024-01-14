@@ -48,6 +48,10 @@ class MemoGameViewModel : ObservableObject{
         model.showAll()
     }
 
+    func hideAll() {
+        model.hideAll()
+    }
+
     func resetAll() {
         model.resetAll()
     }
