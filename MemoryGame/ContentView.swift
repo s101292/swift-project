@@ -14,7 +14,7 @@ struct ContentView: View {
             ScrollView {
                 cards.animation(.default, value: viewModel.cards)
             }
-            Text("Let's find: ").font(.title3)
+            Text("Let's find: " + viewModel.needToFind.content).font(.title3)
             HStack {
                 Text("player1: \(viewModel.score1)")
                 Text("player2: \(viewModel.score2)")
