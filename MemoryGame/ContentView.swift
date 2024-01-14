@@ -18,7 +18,7 @@ struct ContentView: View {
             Text("Let's find: " + viewModel.needToFind.content).font(.title2)
             HStack(spacing: 20) {
                 ScoreBox(score: viewModel.score1, playerName: "Player 1", color: Color.blue)
-                Text("Player 1, your turn! Good luck!").color(.blue),font(.title3)
+                Text("Player 1, your turn! Good luck!").color(.blue).font(.title3)
                 ScoreBox(score: viewModel.score2, playerName: "Player 2", color: Color.green)
             }
             Button(action: {
