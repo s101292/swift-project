@@ -31,7 +31,7 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
         delayedExecution()
     }
 
-    func delayedExecution() {
+    mutating func delayedExecution() {
         let delayInSeconds = 10.0
         DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds) { [weak self] in
             // Check if self still exists
