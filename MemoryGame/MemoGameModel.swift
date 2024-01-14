@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct MemoGameModel<CardContent> where CardContent:Equatable{
+struct MemoGameModel<CardContent>: Equatable where CardContent: Equatable & Comparable {
     var score1 = 0
     var score2 = 0
     var status = "remember"
