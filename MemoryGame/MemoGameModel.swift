@@ -44,7 +44,7 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
         if let chosenIndex = index(of: card), !cards[chosenIndex].isFaceUp, !cards[chosenIndex].isMatched {
             cards[chosenIndex].isFaceUp = true
 
-            if (status === player1) {
+            if (status === "player1") {
                 if cards[chosenIndex].content == needToFind.content {
                     cards[chosenIndex].isMatched = true
                     score1 += 1
@@ -55,7 +55,7 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
                 } else {
                     status = "player2"
                 }
-            } else if (status === player2) {
+            } else if (status === "player2") {
                 if cards[chosenIndex].content == needToFind.content {
                     cards[chosenIndex].isMatched = true
                     score2 += 1
