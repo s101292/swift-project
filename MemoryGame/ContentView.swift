@@ -6,9 +6,6 @@ struct ContentView: View {
     @State private var lastScoreChange: (points: Int, cardId: String) = (0, "0")
     
     var body: some View {
-        // Print statement moved into the body
-        print(viewModel.needToFind.content)
-        
         return VStack {
             Text("Minefield 💣").font(.title2)
             ScrollView {
@@ -18,10 +15,19 @@ struct ContentView: View {
             HStack {
                 Text("player1: \(viewModel.score1)")
                 Text("player2: \(viewModel.score2)")
-                Button("next round") {
-                    // Handle button tap
-                }
             }.padding(.bottom, 15)
+            Button(action: {
+                // Handle button tap
+            }) {
+                Text("NEXT ROUND")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                    .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple]), startPoint: .leading, endPoint: .trailing))
+                    .cornerRadius(10)
+                    .padding(.horizontal, 20)
+            }
             //themeButtonsDisplay
         }.padding()
     }
@@ -56,17 +62,5 @@ struct ContentView: View {
 
     func scoreChange(for cardId: String) -> Int {
         return cardId == lastScoreChange.cardId ? lastScoreChange.points : 0
-    }
-    
-    var themeButtonsDisplay: some View{
-        return HStack{
-            Spacer()
-            ThemeButtonView(viewModel: viewModel, imageName: "tree", content: "topic 1", ownColor: Color.blue)
-            Spacer()
-            ThemeButtonView(viewModel: viewModel, imageName: "moon", content: "topic 2", ownColor: Color.red)
-            Spacer()
-            ThemeButtonView(viewModel: viewModel, imageName: "star", content: "topic 3", ownColor: Color.green)
-            Spacer()
-        }
     }
 }
