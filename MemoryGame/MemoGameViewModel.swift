@@ -43,6 +43,14 @@ class MemoGameViewModel : ObservableObject{
     func shuffle() {
         model.shuffle()
     }
+
+    func showAll() {
+        model.showAll()
+    }
+
+    func resetAll() {
+        model.resetAll()
+    }
     
     func choose(_ card: MemoGameModel<String>.Card) {
         model.choose(card)
