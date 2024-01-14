@@ -42,19 +42,31 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
     
     mutating func choose(_ card: Card) {
         if let chosenIndex = index(of: card), !cards[chosenIndex].isFaceUp, !cards[chosenIndex].isMatched {
-
-            if cards[chosenIndex].content == needToFind.content {
-                cards[chosenIndex].isMatched = true
-                print("match")
-                score1 += 1
-            }
-
-            if cards[chosenIndex].content == looseCard.content {
-                print("loose")
-                score1 = 0
-            }
-
             cards[chosenIndex].isFaceUp = true
+
+            if (status === player1) {
+                if cards[chosenIndex].content == needToFind.content {
+                    cards[chosenIndex].isMatched = true
+                    score1 += 1
+                    status = "player2"
+                } else if cards[chosenIndex].content == looseCard.content {
+                    score1 = 0
+                    status = "player1_loose"
+                } else {
+                    status = "player2"
+                }
+            } else if (status === player2) {
+                if cards[chosenIndex].content == needToFind.content {
+                    cards[chosenIndex].isMatched = true
+                    score2 += 1
+                    // next round
+                } else if cards[chosenIndex].content == looseCard.content {
+                    score2 = 0
+                    status = "player2_loose"
+                } else {
+                    // next round
+                }
+            }
         }
     }
     
