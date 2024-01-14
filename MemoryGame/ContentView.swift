@@ -7,15 +7,10 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            if viewModel.status == "player1_loose" || viewModel.status == "player2_loose" {
-                switch viewModel.status {
-                case "player1_loose":
-                    Text("Player1 lost").font(.title2)
-                case "player2_loose":
-                    Text("Player2 lost").font(.title2)
-                default:
-                    EmptyView()
-                }
+            if viewModel.status == "player1_loose" {
+                Text("Player1 lost").font(.title2)
+            } else if viewModel.status == "player2_loose" {
+                Text("Player2 lost").font(.title2)
             } else {
                 Text("Minefield 💣").font(.title2)
                 ScrollView {
@@ -58,7 +53,7 @@ struct ContentView: View {
                     Button(action: {
                         viewModel.hideAll()
                     }) {
-                        Text(viewModel.status == "remember" ? "REMEMBER" : "START GAME")
+                        Text(viewModel.status == "round_end" ? "START GAME" : "START GAME")
                             .font(.headline)
                             .foregroundColor(.white)
                             .padding()
