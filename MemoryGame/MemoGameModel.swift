@@ -42,15 +42,15 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
 
 
     mutating func showAll() {
-        cards.forEach { card in
-            card.isFaceUp = true
+        cards.forEach { index in
+            ccards[index].isFaceUp = true
         }
     }
 
     mutating func resetAll() {
-        cards.forEach { card in
-            card.isFaceUp = false
-            card.isMatched = false
+        cards.forEach { index in
+            cards[index].isFaceUp = false
+            cards[index].isMatched = false
         }
     }
     
