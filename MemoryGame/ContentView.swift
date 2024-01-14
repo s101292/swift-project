@@ -98,7 +98,7 @@ struct ContentView: View {
                             .frame(minWidth: 0, maxWidth: .infinity)
                             .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple]), startPoint: .leading, endPoint: .trailing))
                             .cornerRadius(10)
-                            .padding(.horizontal, 20)
+                            .padding(20)
                     }
             }
             //themeButtonsDisplay
