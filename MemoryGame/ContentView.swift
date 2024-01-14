@@ -12,12 +12,12 @@ struct ContentView: View {
                 cards.animation(.default, value: viewModel.cards)
             }
             HStack{
-                Text("player1: \(viewModel.score)")
-                Text("player2: \(viewModel.score)")
+                Text("player1: \(viewModel.score1)")
+                Text("player2: \(viewModel.score2)")
                 Button("next round"){
                 }
             }.padding(.bottom, 15)
-            themeButtonsDisplay
+            //themeButtonsDisplay
         }.padding()
 
     }
@@ -30,9 +30,9 @@ struct ContentView: View {
                         .aspectRatio(2/3, contentMode: .fit)
                         .padding(2)
                         .onTapGesture {
-                            let previousScore = viewModel.score
+                            let previousScore = viewModel.score1
                             viewModel.choose(card)
-                            let scoreChange = viewModel.score - previousScore
+                            let scoreChange = viewModel.score1 - previousScore
                             lastScoreChange = (scoreChange, card.id)
                         }
                         .transformIntoCard(isFaceUp: card.isFaceUp)

@@ -20,9 +20,13 @@ class MemoGameViewModel : ObservableObject{
     
     @Published private var model = createMemoGameModel()
     
-    var score: Int {
-            model.score
+    var score1: Int {
+            model.score1
         }
+
+    var score2: Int {
+        model.score2
+    }
     
     var cards: [MemoGameModel<String>.Card] {
             model.cards
@@ -37,17 +41,17 @@ class MemoGameViewModel : ObservableObject{
     }
     
     func changeTheme(color: Color) {
-        themeColor = color
-        MemoGameViewModel.theme = color
-        model.score = 0
+        // themeColor = color
+        // MemoGameViewModel.theme = color
+        // model.score = 0
         
-        model.changeCardSet(numberOfPairsOfCards: 8) {
-            index in
-            if MemoGameViewModel.emojis[MemoGameViewModel.theme]!.indices.contains(index) {
-                return MemoGameViewModel.emojis[MemoGameViewModel.theme]![index]
-            } else {
-                return "??"
-            }
-        }
+        // model.changeCardSet(numberOfPairsOfCards: 8) {
+        //     index in
+        //     if MemoGameViewModel.emojis[MemoGameViewModel.theme]!.indices.contains(index) {
+        //         return MemoGameViewModel.emojis[MemoGameViewModel.theme]![index]
+        //     } else {
+        //         return "??"
+        //     }
+        // }
     }
 }

@@ -1,7 +1,9 @@
 import SwiftUI
 
 struct MemoGameModel<CardContent> where CardContent:Equatable{
-    var score = 0
+    var score1 = 0
+    var scrore2 = 0
+    var turn = 1
     
     private (set) var cards : Array<Card>
     private (set) var needToFind : Card
@@ -49,12 +51,12 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
             if cards[chosenIndex].content == needToFind.content {
                 cards[chosenIndex].isMatched = true
                 print("match")
-                score += 1
+                score1 += 1
             }
 
             if cards[chosenIndex].content == looseCard.content {
                 print("loose")
-                score = 0
+                score1 = 0
             }
 
             cards[chosenIndex].isFaceUp = true
