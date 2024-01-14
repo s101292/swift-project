@@ -5,8 +5,6 @@ class MemoGameViewModel : ObservableObject{
     private static let emojis = [Color.black : [
                                     "🦁", "🐋", "🐨", "🦌", "🦉", "🐬","💣"
                                 ],
-                                 Color.red : ["💣", "💀"],
-                                 Color.green : ["🍏", "🍐", "🥦", "🥒", "🥑", "🌽", "🍏", "🍐", "🥦", "🥒", "🥑", "🌽"]]
     @Published var themeColor = Color.black
     static var theme = Color.black
     

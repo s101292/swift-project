@@ -21,8 +21,10 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
         let randomTo = (numberOfPairsOfCards - 1) * 5 - 1
         let randomInt = Int.random(in: 0...randomTo)
         needToFind = cards[randomInt]
-        print(numberOfPairsOfCards * 5 - 1)
         looseCard = cards[numberOfPairsOfCards * 5 - 1]
+
+
+
         print("need to find")
         print(needToFind.content)
         print("need to loose")
@@ -57,25 +59,6 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
 
             cards[chosenIndex].isFaceUp = true
         }
-        // if let chosenIndex = index(of: card), !cards[chosenIndex].isFaceUp, !cards[chosenIndex].isMatched {
-        //     if let potentialMatchIndex = indexOfTheOneAndOnlyFaceUpCard {
-        //         if cards[chosenIndex].content == cards[potentialMatchIndex].content {
-        //             cards[chosenIndex].isMatched = true
-        //             cards[potentialMatchIndex].isMatched = true
-        //             score += 4
-        //         } else {
-        //             if cards[chosenIndex].hasBeenSeen {
-        //                 score -= 1
-        //             }
-        //             if cards[potentialMatchIndex].hasBeenSeen {
-        //                 score -= 1
-        //             }
-        //         }
-        //     } else {
-        //         indexOfTheOneAndOnlyFaceUpCard = chosenIndex
-        //     }
-        //     cards[chosenIndex].isFaceUp = true
-        // }
     }
     
     private var indexOfTheOneAndOnlyFaceUpCard: Int? {

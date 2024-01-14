@@ -12,9 +12,9 @@ struct ContentView: View {
                 cards.animation(.default, value: viewModel.cards)
             }
             HStack{
-                Text("result: \(viewModel.score)")
-                Button("shuffle"){
-                    viewModel.shuffle()
+                Text("player1: \(viewModel.score)")
+                Text("player2: \(viewModel.score)")
+                Button("next round"){
                 }
             }.padding(.bottom, 15)
             themeButtonsDisplay
