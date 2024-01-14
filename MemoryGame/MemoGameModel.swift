@@ -59,12 +59,14 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
                 if cards[chosenIndex].content == needToFind.content {
                     cards[chosenIndex].isMatched = true
                     score2 += 1
-                    nextRound()
+                    showAll()
+                    status = "round_end"
                 } else if cards[chosenIndex].content == looseCard.content {
                     score2 = 0
                     status = "player2_loose"
                 } else {
-                    nextRound()
+                    showAll()
+                    status = "round_end"
                 }
             }
         }

@@ -49,6 +49,19 @@ struct ContentView: View {
                     Text("")
                 case "player2":
                     Text("")
+                case "round_end":
+                    Button(action: {
+                        viewModel.hideAll()
+                    }) {
+                        Text("START ROUND")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .padding()
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple]), startPoint: .leading, endPoint: .trailing))
+                            .cornerRadius(10)
+                            .padding(.horizontal, 20)
+                    }
                 default:
                     Button(action: {
                         viewModel.hideAll()
