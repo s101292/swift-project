@@ -18,10 +18,14 @@ struct ContentView: View {
                 }
                 
                 switch viewModel.status {
-                    case "remember":
-                        EmptyView()
-                    default:
+                    case "player1":
                         Text("Let's find: " + viewModel.needToFind.content).font(.title2).padding(.bottom, 20)
+                    case "player2":
+                        Text("Let's find: " + viewModel.needToFind.content).font(.title2).padding(.bottom, 20)
+                    case "round_end":
+                        Text("Let's find: " + viewModel.needToFind.content).font(.title2).padding(.bottom, 20)
+                    default:
+                        EmptyView()    
                 }
 
                 HStack(spacing: 20) {
