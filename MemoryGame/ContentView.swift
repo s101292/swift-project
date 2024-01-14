@@ -26,7 +26,7 @@ struct ContentView: View {
                     case "player2":
                         Text("Player 2, your turn! Good luck!").multilineTextAlignment(.center)
                     case "remember":
-                        Text("Let's remember for 10sec...").multilineTextAlignment(.center)
+                        Text("Let's remember cards...").multilineTextAlignment(.center)
                     default:
                         EmptyView()
                     }
@@ -53,7 +53,7 @@ struct ContentView: View {
                     Button(action: {
                         viewModel.hideAll()
                     }) {
-                        Text(viewModel.status == "round_end" ? "START GAME" : "START GAME")
+                        Text("START GAME")
                             .font(.headline)
                             .foregroundColor(.white)
                             .padding()
@@ -64,7 +64,6 @@ struct ContentView: View {
                             .padding(.horizontal, 20)
                     }
                 }
-                // themeButtonsDisplay
             }
         }
     }

@@ -24,7 +24,7 @@ struct CardView: View {
                     .opacity(card.isFaceUp ? 1 : 0)
             )
             .aspectRatio(2/3, contentMode: .fill)
-            .opacity(card.isFaceUp || !card.isMatched ? 1 : 0)
+            .opacity(card.isFaceUp ? 1 : 0)
         
     }
 }
