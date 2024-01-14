@@ -48,7 +48,7 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
     }
 
     mutating func resetAll() {
-        ccards.indices.forEach { index in
+        cards.indices.forEach { index in
             cards[index].isFaceUp = false
             cards[index].isMatched = false
         }
