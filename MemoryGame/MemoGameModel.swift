@@ -118,6 +118,7 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
     mutating func nextRound() {
         resetAll()
         showAll()
+        let randomTo = (numberOfPairsOfCards - 1) * 5 - 1
         let randomInt = Int.random(in: 0...randomTo)
         needToFind = cards[randomInt]
         status = "show"
