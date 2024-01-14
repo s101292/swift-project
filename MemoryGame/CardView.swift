@@ -20,16 +20,6 @@ struct CardView: View {
                             .aspectRatio(1, contentMode: .fit)
                             .rotationEffect(.degrees(card.isMatched ? 360 : 0))
                             .animation(Animation.spin(duration: 2))
-                            .if(card.isMatched) { content in
-                                content
-                                    .animation(Animation.spin(duration: 2))
-                            }
-                            .if(!card.isMatched) { content in
-                                content
-                                    withAnimation(Animation.easeInOut(duration: 0.5).repeatForever(autoreverses: true)) {
-                                        // No need for explicit changes here, the content already has the desired properties
-                                    }
-                            }
                     }
                     .opacity(card.isFaceUp ? 1 : 0)
             )
@@ -45,13 +35,3 @@ extension Animation {
     }
 }
 
-extension View {
-    @ViewBuilder
-    func `if`<Content: View>(_ condition: Bool, content: (Self) -> Content) -> some View {
-        if condition {
-            content(self)
-        } else {
-            self
-        }
-    }
-}
