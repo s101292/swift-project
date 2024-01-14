@@ -117,6 +117,8 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
             } else {
                 status = "draw"
             }
+
+            return nil
         }
 
         resetAll()
