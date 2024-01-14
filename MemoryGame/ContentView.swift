@@ -11,13 +11,13 @@ struct ContentView: View {
             ScrollView {
                 cards.animation(.default, value: viewModel.cards)
             }
-            Text("Let's find: " + viewModel.needToFind.content).font(.title3)
             // HStack {
             //     Text("player1: \(viewModel.score1)")
             //     Text("player2: \(viewModel.score2)")
             // }.padding(.bottom, 15)
             HStack(spacing: 20) {
                 ScoreBox(score: viewModel.score1, playerName: "Player 1", color: Color.blue)
+                Text("Let's find: " + viewModel.needToFind.content).font(.title3)
                 ScoreBox(score: viewModel.score2, playerName: "Player 2", color: Color.green)
             }
             Button(action: {
