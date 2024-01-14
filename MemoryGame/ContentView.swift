@@ -20,8 +20,12 @@ struct ContentView: View {
                     Text("Let's find: " + viewModel.needToFind.content)
                         .font(.title2)
                         .padding(.bottom, 20)
+                case "player1_loose"
+                    Text("Player1 was loosed")
+                case "player2_loose"
+                    Text("Player2 was loosed")  
                 default:
-                    Text("")
+                    Text("")  
             }
             HStack(spacing: 20) {
                 ScoreBox(score: viewModel.score1, playerName: "Player 1", color: Color.blue)
