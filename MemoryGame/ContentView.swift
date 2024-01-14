@@ -14,7 +14,9 @@ struct ContentView: View {
                             .font(.title2)
                     case "player2_loose":
                         Text("Player2 lost")
-                            .font(.title2)        
+                            .font(.title2)    
+                    default:
+                        Text("")    
                 }
             }
         }
