@@ -37,6 +37,18 @@ struct ContentView: View {
                     }
             } else if viewModel.status == "draw" {
                 Text("Draw").font(.title2)
+                    Button(action: {
+                        viewModel.nextRound()
+                    }) {
+                        Text("RESTART")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .padding()
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple]), startPoint: .leading, endPoint: .trailing))
+                            .cornerRadius(10)
+                            .padding(.horizontal, 20)
+                    }
             } else {
                 Text("Minefield 💣").font(.title2)
                 ScrollView {
