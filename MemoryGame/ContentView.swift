@@ -66,6 +66,8 @@ struct ContentView: View {
                             .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple]), startPoint: .leading, endPoint: .trailing))
                             .cornerRadius(10)
                             .padding(.top, 20)
+                            .padding(.left, 20)
+                            .padding(.right, 20)
                     }
                 }
                 // themeButtonsDisplay
