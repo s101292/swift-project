@@ -88,7 +88,7 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
 
     mutating func hideAll() {
         cards.indices.forEach { index in
-            cards[index].isFaceUp = true
+            cards[index].isFaceUp = false
         }
     }
 
