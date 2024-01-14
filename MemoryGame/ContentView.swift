@@ -18,7 +18,7 @@ struct ContentView: View {
                     default:
                         Text("")    
                 }
-            }
+            }.padding()
         }
 
         return VStack {
