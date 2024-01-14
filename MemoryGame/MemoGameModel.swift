@@ -25,7 +25,7 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
         needToFind = cards[randomInt]
         looseCard = cards[numberOfPairsOfCards * 5 - 1]
 
-        cards.showAll()
+        showAll()
         cards.shuffle()
     }
     
@@ -38,20 +38,6 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
             cards.append(Card(content: content, id: "\(uuid)b"))
         }
         cards.shuffle()
-    }
-
-
-    mutating func showAll() {
-        cards.indices.forEach { index in
-            cards[index].isFaceUp = true
-        }
-    }
-
-    mutating func resetAll() {
-        cards.indices.forEach { index in
-            cards[index].isFaceUp = false
-            cards[index].isMatched = false
-        }
     }
     
     mutating func choose(_ cards: Card) {
@@ -92,6 +78,19 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
     
     mutating func shuffle() {
         cards.shuffle()
+    }
+
+    mutating func showAll() {
+        cards.indices.forEach { index in
+            cards[index].isFaceUp = true
+        }
+    }
+
+    mutating func resetAll() {
+        cards.indices.forEach { index in
+            cards[index].isFaceUp = false
+            cards[index].isMatched = false
+        }
     }
     
     struct Card : Equatable, Identifiable{
