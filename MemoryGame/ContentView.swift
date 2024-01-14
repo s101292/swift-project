@@ -44,7 +44,7 @@ struct ContentView: View {
                         EmptyView()
                     case "round_end":
                         Button(action: {
-                            viewModel.hideAll()
+                            viewModel.nextRound()
                         }) {
                             Text("NEXT ROUND")
                                 .font(.headline)
