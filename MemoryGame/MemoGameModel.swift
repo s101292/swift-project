@@ -48,25 +48,22 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
             if (status == "player1") {
                 if cards[chosenIndex].content == needToFind.content {
                     score1 += 1
-                    status = "player2"
                 } else if cards[chosenIndex].content == looseCard.content {
                     score1 = 0
-                    status = "player1_loose"
-                } else {
-                    status = "player2"
-                }
+                } 
+
+                status = "player2"
             } else if (status == "player2") {
                 if cards[chosenIndex].content == needToFind.content {
                     score2 += 1
                     showAll()
-                    status = "round_end"
                 } else if cards[chosenIndex].content == looseCard.content {
                     score2 = 0
-                    status = "player2_loose"
                 } else {
                     showAll()
-                    status = "round_end"
                 }
+
+                status = "round_end"
             }
         }
     }
@@ -97,6 +94,12 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
         status = "player1"
     }
 
+    mutating func restartGame() {
+        score1 = 0
+        score2 = 0
+        nextRound()
+    }
+
     mutating func resetAll() {
         cards.indices.forEach { index in
             cards[index].isFaceUp = false
@@ -106,10 +109,20 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
     }
 
     mutating func nextRound() {
+        if (score1 >= 3 || score2 >= 3) {
+            if (score1 > score2) {
+                status = "player2_loose"
+            } else if (score2 > score1) {
+                status = "player1_loose"
+            } else {
+                status = "draw"
+            }
+        }
+
         resetAll()
         showAll()
         status = "show"
-        
+
         let randomTo = (7 - 1) * 5 - 1
         let randomInt = Int.random(in: 0...randomTo)
         needToFind = cards[randomInt]

@@ -59,6 +59,10 @@ class MemoGameViewModel : ObservableObject{
     func nextRound() {
         model.nextRound()
     }
+
+    func restartGame() {
+        model.restartGame()
+    }
     
     func choose(_ card: MemoGameModel<String>.Card) {
         model.choose(card)
