@@ -29,8 +29,8 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
         cards.shuffle()
 
         let delayInSeconds = 10.0
-        DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds) {
-            hideAll()
+        DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds) { [weak self] in
+            self?.hideAll()
         }
     }
     
