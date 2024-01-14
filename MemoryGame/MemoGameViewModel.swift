@@ -55,12 +55,23 @@ class MemoGameViewModel : ObservableObject{
     func resetAll() {
         model.resetAll()
     }
-
-    func nextRound() {
-        model.nextRound()
-    }
     
     func choose(_ card: MemoGameModel<String>.Card) {
         model.choose(card)
+    }
+    
+    func changeTheme(color: Color) {
+        // themeColor = color
+        // MemoGameViewModel.theme = color
+        // model.score = 0
+        
+        // model.changeCardSet(numberOfPairsOfCards: 8) {
+        //     index in
+        //     if MemoGameViewModel.emojis[MemoGameViewModel.theme]!.indices.contains(index) {
+        //         return MemoGameViewModel.emojis[MemoGameViewModel.theme]![index]
+        //     } else {
+        //         return "??"
+        //     }
+        // }
     }
 }

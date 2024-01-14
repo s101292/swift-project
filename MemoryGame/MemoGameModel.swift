@@ -111,7 +111,7 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
         let randomTo = (7 - 1) * 5 - 1
         let randomInt = Int.random(in: 0...randomTo)
         needToFind = cards[randomInt]
-        status = "remember"
+        status = "show"
     }
     
     struct Card : Equatable, Identifiable{
@@ -122,6 +122,16 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
         
         var debugDescription: String {
             return "\(id): \(content) \(isFaceUp ? "up" : "down") \(isMatched ? "matched" : "")"
+        }
+    }
+}
+
+extension Array {
+    var oneAndOnly: Element? {
+        if count == 1 {
+            return first
+        } else {
+            return nil
         }
     }
 }

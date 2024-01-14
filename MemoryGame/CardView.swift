@@ -13,7 +13,7 @@ struct CardView: View {
             .overlay(
                 Group{
                         base.fill(.white)
-                        base.strokeBorder(card.isMatched ? Color.yellow : Color.black, lineWidth: 3)
+                        base.strokeBorder(card.isMatched ? Color.yellow : Color.blue, lineWidth: 3)
                         Text(card.content)
                             .font(.system(size: 250))
                             .minimumScaleFactor(0.01)
