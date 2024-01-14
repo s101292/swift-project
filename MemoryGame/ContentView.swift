@@ -20,6 +20,10 @@ struct ContentView: View {
                     Text("Let's find: " + viewModel.needToFind.content)
                         .font(.title2)
                         .padding(.bottom, 20)
+                case "round_end":
+                    Text("Let's find: " + viewModel.needToFind.content)
+                        .font(.title2)
+                        .padding(.bottom, 20)
                 case "player1_loose":
                     Text("Player1 was loosed")
                         .padding(.bottom, 20)
