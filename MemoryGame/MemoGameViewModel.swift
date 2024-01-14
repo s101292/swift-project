@@ -48,6 +48,10 @@ class MemoGameViewModel : ObservableObject{
         model.showAll()
     }
 
+    func delayedExecution() {
+        model.delayedExecution()
+    }
+
     func hideAll() {
         model.hideAll()
     }

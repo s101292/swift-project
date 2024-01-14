@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct MemoGameModel<CardContent>: Equatable where CardContent: Equatable & Comparable {
+struct MemoGameModel<CardContent> where CardContent:Equatable{
     var score1 = 0
     var score2 = 0
     var status = "remember"
@@ -9,7 +9,7 @@ struct MemoGameModel<CardContent>: Equatable where CardContent: Equatable & Comp
     private (set) var needToFind : Card
     private (set) var looseCard : Card
     
-    init(numberOfPairsOfCards: Int, cardContentFactory : @escaping (Int)->CardContent) {
+    init(numberOfPairsOfCards: Int, cardContentFactory : (Int)->CardContent) {
         cards = []
         for pairIndex in 0..<numberOfPairsOfCards {
             let content = cardContentFactory(pairIndex)
@@ -28,9 +28,13 @@ struct MemoGameModel<CardContent>: Equatable where CardContent: Equatable & Comp
         showAll()
         cards.shuffle()
 
+        delayedExecution()
+    }
+
+    mutating func delayedExecution() {
         let delayInSeconds = 10.0
-        DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds) { [weak self] in
-            self?.hideAll()
+        DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds) {
+            self.hideAll()
         }
     }
     
@@ -93,7 +97,7 @@ struct MemoGameModel<CardContent>: Equatable where CardContent: Equatable & Comp
 
     mutating func hideAll() {
         cards.indices.forEach { index in
-            cards[index].isFaceUp = false
+            cards[index].isFaceUp = true
         }
     }
 
