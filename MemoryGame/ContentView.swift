@@ -6,6 +6,7 @@ struct ContentView: View {
     @State private var lastScoreChange: (points: Int, cardId: String) = (0, "0")
     
     var body: some View {
+        print(viewModel.status)
         VStack {
             if viewModel.status == "player1_loose" {
                 Text("Player1 lost").font(.title2)
