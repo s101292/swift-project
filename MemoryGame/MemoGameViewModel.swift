@@ -21,8 +21,8 @@ class MemoGameViewModel : ObservableObject{
     @Published private var model = createMemoGameModel()
     
     var score1: Int {
-            model.score1
-        }
+        model.score1
+    }
 
     var score2: Int {
         model.score2
@@ -37,8 +37,8 @@ class MemoGameViewModel : ObservableObject{
     }
     
     var cards: [MemoGameModel<String>.Card] {
-            model.cards
-        }
+        model.cards
+    }
     
     func shuffle() {
         model.shuffle()
