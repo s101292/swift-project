@@ -55,6 +55,10 @@ class MemoGameViewModel : ObservableObject{
     func resetAll() {
         model.resetAll()
     }
+
+    func nextRound() {
+        model.nextRound()
+    }
     
     func choose(_ card: MemoGameModel<String>.Card) {
         model.choose(card)
