@@ -3,7 +3,7 @@ import SwiftUI
 struct MemoGameModel<CardContent> where CardContent:Equatable{
     var score1 = 0
     var score2 = 0
-    var turn = 1
+    var status = "show"
     
     private (set) var cards : Array<Card>
     private (set) var needToFind : Card
@@ -25,7 +25,7 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
         needToFind = cards[randomInt]
         looseCard = cards[numberOfPairsOfCards * 5 - 1]
 
-
+        cards.showAll();
 
         print("need to find")
         print(needToFind.content)
@@ -44,8 +44,22 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
         }
         cards.shuffle()
     }
+
+
+    mutating func showAll() {
+        cards.forEach { card in
+            card.isFaceUp = true
+        }
+    }
+
+    mutating func resetAll() {
+        cards.forEach { card in
+            card.isFaceUp = false
+            card.isMatched = false
+        }
+    }
     
-    mutating func choose(_ card: Card) {
+    mutating func choose(_ cards: Card) {
         if let chosenIndex = index(of: card), !cards[chosenIndex].isFaceUp, !cards[chosenIndex].isMatched {
 
             if cards[chosenIndex].content == needToFind.content {
