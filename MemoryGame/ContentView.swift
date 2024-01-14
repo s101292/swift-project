@@ -34,35 +34,35 @@ struct ContentView: View {
                 }
 
                 switch viewModel.status {
-                case "player1", "player2":
-                    EmptyView()
-                case "round_end":
-                    Button(action: {
-                        viewModel.hideAll()
-                    }) {
-                        Text("NEXT ROUND")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .padding()
-                            .frame(minWidth: 0, maxWidth: .infinity)
-                            .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple]), startPoint: .leading, endPoint: .trailing))
-                            .cornerRadius(10)
-                            .padding(.horizontal, 20)
-                    }
-                default:
-                    Button(action: {
-                        viewModel.hideAll()
-                    }) {
-                        Text("START GAME")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .padding()
-                            .frame(minWidth: 0, maxWidth: .infinity)
-                            .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple]), startPoint: .leading, endPoint: .trailing))
-                            .cornerRadius(10)
-                            .padding(.top, 20)
-                            .padding(.horizontal, 20)
-                    }
+                    case "player1", "player2":
+                        EmptyView()
+                    case "round_end":
+                        Button(action: {
+                            viewModel.hideAll()
+                        }) {
+                            Text("NEXT ROUND")
+                                .font(.headline)
+                                .foregroundColor(.white)
+                                .padding()
+                                .frame(minWidth: 0, maxWidth: .infinity)
+                                .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple]), startPoint: .leading, endPoint: .trailing))
+                                .cornerRadius(10)
+                                .padding(.horizontal, 20)
+                        }
+                    default:
+                        Button(action: {
+                            viewModel.hideAll()
+                        }) {
+                            Text("START GAME")
+                                .font(.headline)
+                                .foregroundColor(.white)
+                                .padding()
+                                .frame(minWidth: 0, maxWidth: .infinity)
+                                .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple]), startPoint: .leading, endPoint: .trailing))
+                                .cornerRadius(10)
+                                .padding(.top, 20)
+                                .padding(.horizontal, 20)
+                        }
                 }
             }
         }
