@@ -20,6 +20,17 @@ struct ContentView: View {
                 .padding(.bottom, 20)
             HStack(spacing: 20) {
                 ScoreBox(score: viewModel.score1, playerName: "Player 1", color: Color.blue)
+                switch viewModel.status {
+                    case "player1":
+                        Text("Player 1, your turn! Good luck!")
+                            .multilineTextAlignment(.center)
+                    case "player2":
+                        Text("Player 2, your turn! Good luck!")
+                            .multilineTextAlignment(.center)
+                    case "remember":
+                        Text("Let's remember")
+                            .multilineTextAlignment(.center)
+                }
                 Text("Player 1, your turn! Good luck!")
                     .multilineTextAlignment(.center)
                 ScoreBox(score: viewModel.score2, playerName: "Player 2", color: Color.green)

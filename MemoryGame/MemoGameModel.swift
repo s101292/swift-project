@@ -3,7 +3,7 @@ import SwiftUI
 struct MemoGameModel<CardContent> where CardContent:Equatable{
     var score1 = 0
     var score2 = 0
-    var status = "show"
+    var status = "remember"
     
     private (set) var cards : Array<Card>
     private (set) var needToFind : Card
