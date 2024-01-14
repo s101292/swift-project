@@ -4,25 +4,26 @@ struct ContentView: View {
     
     @ObservedObject var viewModel: MemoGameViewModel = MemoGameViewModel()
     @State private var lastScoreChange: (points: Int, cardId: String) = (0, "0")
-
-    print(viewModel.needToFind.content)
     
     var body: some View {
-        VStack{
+        // Print statement moved into the body
+        print(viewModel.needToFind.content)
+        
+        return VStack {
             Text("Minefield 💣").font(.title2)
-            ScrollView{
+            ScrollView {
                 cards.animation(.default, value: viewModel.cards)
             }
             Text("Let's find: ").font(.title3)
-            HStack{
+            HStack {
                 Text("player1: \(viewModel.score1)")
                 Text("player2: \(viewModel.score2)")
-                Button("next round"){
+                Button("next round") {
+                    // Handle button tap
                 }
             }.padding(.bottom, 15)
             //themeButtonsDisplay
         }.padding()
-
     }
     
     var cards : some View {
