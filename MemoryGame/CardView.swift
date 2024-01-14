@@ -8,7 +8,7 @@ struct CardView: View {
     }
     
     var body: some View {
-        let base = RoundedRectangle(cornerRadius: 12)
+        let base = RoundedRectangle(cornerRadius: 0)
         base
             .overlay(
                 Group{
