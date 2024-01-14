@@ -110,7 +110,7 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
             cards[index].isFaceUp = false
             cards[index].isMatched = false
         }
-        cards.shuffle
+        cards.shuffle()
     }
 
     mutating func nextRound() {
