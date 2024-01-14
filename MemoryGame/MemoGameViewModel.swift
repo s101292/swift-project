@@ -27,6 +27,10 @@ class MemoGameViewModel : ObservableObject{
     var score2: Int {
         model.score2
     }
+
+    var needToFind: MemoGameModel<String>.Card {
+        model.needToFind
+    }
     
     var cards: [MemoGameModel<String>.Card] {
             model.cards
