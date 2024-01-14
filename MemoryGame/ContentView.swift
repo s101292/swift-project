@@ -11,23 +11,11 @@ struct ContentView: View {
                 switch viewModel.status {
                     case "player1_loose":
                         Text("Player1 lost")
-                            .font(.title1)
+                            .font(.title2)
                     case "player2_loose":
                         Text("Player2 lost")
-                            .font(.title1)        
+                            .font(.title2)        
                 }
-                Button(action: {
-                        viewModel.hideAll()
-                    }) {
-                        Text("START GAME")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .padding()
-                            .frame(minWidth: 0, maxWidth: .infinity)
-                            .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple]), startPoint: .leading, endPoint: .trailing))
-                            .cornerRadius(10)
-                            .padding(.horizontal, 20)
-                    }
             }
         }
 
