@@ -6,7 +6,6 @@ struct ContentView: View {
     @State private var lastScoreChange: (points: Int, cardId: String) = (0, "0")
     
     var body: some View {
-        print(viewModel.status)
         VStack {
             if viewModel.status == "player1_loose" {
                 Text("Player1 lost").font(.title2)
@@ -19,7 +18,7 @@ struct ContentView: View {
                 }
                 
                 switch viewModel.status {
-                    case: "remember":
+                    case "remember":
                         EmptyView()
                     default:
                         Text("Let's find: " + viewModel.needToFind.content).font(.title2).padding(.bottom, 20)
