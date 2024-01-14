@@ -3,13 +3,13 @@ import SwiftUI
 
 class MemoGameViewModel : ObservableObject{
     private static let emojis = [Color.black : [
-                                    "🦁", "🐋", "🐨", "🦌", "🦉", "🐬","💣"
+                                    "🦁", "🐋", "🐨", "🦌", "🦉","💣"
                                 ]]
     @Published var themeColor = Color.black
     static var theme = Color.black
     
     private static func createMemoGameModel() -> MemoGameModel<String> {
-        return MemoGameModel<String>(numberOfPairsOfCards: 7) { index in
+        return MemoGameModel<String>(numberOfPairsOfCards: 6) { index in
                 if emojis[theme]!.indices.contains(index) {
                     return emojis[theme]![index]
                 } else {
