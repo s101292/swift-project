@@ -27,14 +27,6 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
 
         showAll()
         cards.shuffle()
-
-        delayedExecution()
-    }
-
-    mutating func delayedExecution() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
-            hideAll()
-        }
     }
     
     mutating func changeCardSet(numberOfPairsOfCards: Int, cardContentFactory : (Int)->CardContent) {

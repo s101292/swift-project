@@ -40,17 +40,24 @@ struct ContentView: View {
                 }
                 ScoreBox(score: viewModel.score2, playerName: "Player 2", color: Color.green)
             }
-            Button(action: {
-                // Handle button tap
-            }) {
-                Text("NEXT ROUND")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .padding()
-                    .frame(minWidth: 0, maxWidth: .infinity)
-                    .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple]), startPoint: .leading, endPoint: .trailing))
-                    .cornerRadius(10)
-                    .padding(.horizontal, 20)
+            switch viewModel.status {
+                case "player1":
+                    Text("")
+                case "player2":
+                    Text("")
+                default:
+                    Button(action: {
+                        viewModel.hideAll()
+                    }) {
+                        Text("START ROUND")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .padding()
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple]), startPoint: .leading, endPoint: .trailing))
+                            .cornerRadius(10)
+                            .padding(.horizontal, 20)
+                    }
             }
             //themeButtonsDisplay
         }.padding()
