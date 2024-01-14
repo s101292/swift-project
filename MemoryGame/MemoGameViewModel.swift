@@ -4,7 +4,7 @@ import SwiftUI
 class MemoGameViewModel : ObservableObject{
     private static let emojis = [Color.black : [
                                     "🦁", "🐋", "🐨", "🦌", "🦉", "🐬","💣"
-                                ],
+                                ]]
     @Published var themeColor = Color.black
     static var theme = Color.black
     
