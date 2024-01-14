@@ -22,8 +22,10 @@ struct ContentView: View {
                         .padding(.bottom, 20)
                 case "player1_loose":
                     Text("Player1 was loosed")
+                        .padding(.bottom, 20)
                 case "player2_loose":
                     Text("Player2 was loosed")  
+                        .padding(.bottom, 20)
                 default:
                     Text("")  
             }
@@ -53,7 +55,7 @@ struct ContentView: View {
                     Button(action: {
                         viewModel.hideAll()
                     }) {
-                        Text("START ROUND")
+                        Text("NEXT ROUND")
                             .font(.headline)
                             .foregroundColor(.white)
                             .padding()
@@ -66,7 +68,7 @@ struct ContentView: View {
                     Button(action: {
                         viewModel.hideAll()
                     }) {
-                        Text("START ROUND")
+                        Text("START GAME")
                             .font(.headline)
                             .foregroundColor(.white)
                             .padding()
