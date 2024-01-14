@@ -56,7 +56,7 @@ class MemoGameViewModel : ObservableObject{
         model.resetAll()
     }
 
-    funct nextRound() {
+    func nextRound() {
         model.nextRound()
     }
     
