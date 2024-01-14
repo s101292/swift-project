@@ -71,15 +71,6 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
         }
     }
     
-    private var indexOfTheOneAndOnlyFaceUpCard: Int? {
-        get { cards.indices.filter { cards[$0].isFaceUp }.oneAndOnly }
-        set {
-            for index in cards.indices {
-                cards[index].isFaceUp = index == newValue
-            }
-        }
-    }
-    
     func index(of card: Card) -> Int? {
         for index in cards.indices {
             if cards[index].id == card.id {
@@ -124,14 +115,7 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
     }
     
     struct Card : Equatable, Identifiable{
-        var isFaceUp = false {
-                    didSet {
-                        if oldValue && !isFaceUp{
-                            hasBeenSeen = true
-                        }
-                    }
-                }
-        var hasBeenSeen = false
+        var isFaceUp = false
         var isMatched = false
         var content : CardContent
         var id: String
