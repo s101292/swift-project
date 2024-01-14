@@ -30,6 +30,8 @@ struct ContentView: View {
                     case "remember":
                         Text("Let's remember")
                             .multilineTextAlignment(.center)
+                    default:
+                        Text("")
                 }
                 Text("Player 1, your turn! Good luck!")
                     .multilineTextAlignment(.center)
