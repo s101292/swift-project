@@ -6,8 +6,8 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
     var status = "remember"
     
     private (set) var cards : Array<Card>
-    private (set) var needToFind : Card
-    private (set) var looseCard : Card
+    private (set) var needToFind : String
+    private (set) var looseCard : String
     
     init(numberOfPairsOfCards: Int, cardContentFactory : (Int)->CardContent) {
         cards = []
@@ -20,10 +20,8 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
             cards.append(Card(content: content, id: "\(uuid)d"))
             cards.append(Card(content: content, id: "\(uuid)e"))
         }
-        let randomTo = (numberOfPairsOfCards - 1) * 5 - 1
-        let randomInt = Int.random(in: 0...randomTo)
-        needToFind = cards[randomInt]
-        looseCard = cards[numberOfPairsOfCards * 5 - 1]
+        needToFind = getRandomEmoji()
+        looseCard = "💣"
 
         showAll()
         cards.shuffle()
@@ -46,18 +44,18 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
             cards[chosenIndex].isMatched = true
 
             if (status == "player1") {
-                if cards[chosenIndex].content == needToFind.content {
+                if cards[chosenIndex].content == needToFind {
                     score1 += 1
-                } else if cards[chosenIndex].content == looseCard.content {
+                } else if cards[chosenIndex].content == looseCard {
                     score1 = 0
                 } 
 
                 status = "player2"
             } else if (status == "player2") {
-                if cards[chosenIndex].content == needToFind.content {
+                if cards[chosenIndex].content == needToFind {
                     score2 += 1
                     showAll()
-                } else if cards[chosenIndex].content == looseCard.content {
+                } else if cards[chosenIndex].content == looseCard {
                     score2 = 0
                 } else {
                     showAll()
@@ -75,6 +73,11 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
             }
         }
         return nil
+    }
+
+    func getRandomEmoji() -> String {
+        let emojis = ["🦁", "🐋", "🐨", "🦌", "🦉"]
+        return emojis.randomElement()
     }
     
     mutating func shuffle() {
@@ -122,9 +125,7 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
             showAll()
             status = "show"
 
-            let randomTo = (7 - 1) * 5 - 1
-            let randomInt = Int.random(in: 0...randomTo)
-            needToFind = cards[randomInt]
+            needToFind = getRandomEmoji()
         }
     }
     

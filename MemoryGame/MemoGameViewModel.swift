@@ -52,6 +52,10 @@ class MemoGameViewModel : ObservableObject{
         model.hideAll()
     }
 
+    func getRandomEmoji() {
+        model.getRandomEmoji()
+    }
+
     func resetAll() {
         model.resetAll()
     }
