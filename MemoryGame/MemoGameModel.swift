@@ -6,8 +6,8 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
     var status = "remember"
     
     private (set) var cards : Array<Card>
-    private (set) var needToFind : String
-    private (set) var looseCard : String
+    private (set) var needToFind : CardContent
+    private (set) var looseCard : CardContent
     
     init(numberOfPairsOfCards: Int, cardContentFactory : (Int)->CardContent) {
         cards = []
@@ -21,7 +21,7 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
             cards.append(Card(content: content, id: "\(uuid)e"))
         }
         needToFind = getRandomEmoji()
-        looseCard = "💣"
+        looseCard = "💣" as! CardContent
 
         showAll()
         cards.shuffle()
@@ -75,9 +75,9 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
         return nil
     }
 
-    func getRandomEmoji() -> String {
+    func getRandomEmoji() -> CardContent {
         let emojis = ["🦁", "🐋", "🐨", "🦌", "🦉"]
-        return emojis.randomElement()
+        return emojis.randomElement() as! CardContent
     }
     
     mutating func shuffle() {
