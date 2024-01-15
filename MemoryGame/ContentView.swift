@@ -54,6 +54,7 @@ struct ContentView: View {
                                 .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple]), startPoint: .leading, endPoint: .trailing))
                                 .cornerRadius(10)
                                 .padding(.horizontal, 20)
+                                .padding(.top, 20)
                         }
                     default:
                         Button(action: {
