@@ -68,16 +68,7 @@ struct ContentView: View {
 
                 HStack(spacing: 20) {
                     ScoreBox(score: viewModel.score1, playerName: "Player 1", color: Color.blue)
-                    switch viewModel.status {
-                        case "player1":
-                            Text("Player 1, your turn! Good luck!").multilineTextAlignment(.center)
-                        case "player2":
-                            Text("Player 2, your turn! Good luck!").multilineTextAlignment(.center)
-                        case "remember":
-                            Text("Let's remember cards...").multilineTextAlignment(.center)
-                        default:
-                            EmptyView()
-                    }
+                    Text(playerTextForStatus())
                     ScoreBox(score: viewModel.score2, playerName: "Player 2", color: Color.green)
                 }
 
@@ -114,6 +105,30 @@ struct ContentView: View {
                 }
             }
         }.padding()
+    }
+
+    func createRestartButton() -> some View {
+        Text("RESTART")
+            .font(.headline)
+            .foregroundColor(.white)
+            .padding()
+            .frame(minWidth: 0, maxWidth: .infinity)
+            .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple]), startPoint: .leading, endPoint: .trailing))
+            .cornerRadius(10)
+            .padding(.horizontal, 20)
+    }
+
+    func playerTextForStatus(_ status: String) -> String {
+        switch status {
+            case "player1":
+                return "Player 1, your turn! Good luck!"
+            case "player2":
+                return "Player 2, your turn! Good luck!"
+            case "remember":
+                return "Let's remember cards..."
+            default:
+                return ""
+        }
     }
     
     var cards : some View {
