@@ -68,7 +68,7 @@ struct ContentView: View {
 
                 HStack(spacing: 20) {
                     ScoreBox(score: viewModel.score1, playerName: "Player 1", color: Color.blue)
-                    Text(playerTextForStatus())
+                    Text(playerTextForStatus(viewModel.status))
                     ScoreBox(score: viewModel.score2, playerName: "Player 2", color: Color.green)
                 }
 
