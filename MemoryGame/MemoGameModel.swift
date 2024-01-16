@@ -6,8 +6,8 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
     var status = "remember"
     
     private (set) var cards : Array<Card>
-    private (set) var needToFind : CardContent
-    private (set) var looseCard : CardContent
+    private (set) var needToFind : Card
+    private (set) var looseCard : Card
     
     init(numberOfPairsOfCards: Int, cardContentFactory : (Int)->CardContent) {
         cards = []
@@ -21,7 +21,7 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
             cards.append(Card(content: content, id: "\(uuid)e"))
         }
         needToFind = getRandomEmoji()
-        looseCard = "💣" as! CardContent
+        looseCard = Card(content: "💣", id: "bomb")
 
         showAll()
         cards.shuffle()
@@ -44,18 +44,18 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
             cards[chosenIndex].isMatched = true
 
             if (status == "player1") {
-                if cards[chosenIndex].content == needToFind {
+                if cards[chosenIndex].content == needToFind.content {
                     score1 += 1
-                } else if cards[chosenIndex].content == looseCard {
+                } else if cards[chosenIndex].content == looseCard.content {
                     score1 = 0
                 } 
 
                 status = "player2"
             } else if (status == "player2") {
-                if cards[chosenIndex].content == needToFind {
+                if cards[chosenIndex].content == needToFind.content {
                     score2 += 1
                     showAll()
-                } else if cards[chosenIndex].content == looseCard {
+                } else if cards[chosenIndex].content == looseCard.content {
                     score2 = 0
                 } else {
                     showAll()
@@ -75,9 +75,9 @@ struct MemoGameModel<CardContent> where CardContent:Equatable{
         return nil
     }
 
-    func getRandomEmoji() -> CardContent {
+    func getRandomEmoji() -> Card {
         let emojis = ["🦁", "🐋", "🐨", "🦌", "🦉"]
-        return emojis.randomElement() as! CardContent
+        return  Card(content: emojis.randomElement(), id: "needToFind")
     }
     
     mutating func shuffle() {

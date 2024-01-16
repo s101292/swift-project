@@ -32,7 +32,7 @@ class MemoGameViewModel : ObservableObject{
         model.status
     }
 
-    var needToFind: CardContent {
+    var needToFind: MemoGameModel<String>.Card {
         model.needToFind
     }
     
